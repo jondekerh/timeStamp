@@ -7,14 +7,25 @@ function createStamp(input) {
 
   if (!isNaN(stamp)) {
     return {
-      "UNIX": stamp.getTime(),
-      "UTC": stamp.toUTCString()
+      "unix-in-ms": stamp.getTime(),
+      "utc": stamp.toUTCString()
     };
   } else {
     return 'ERROR: INVALID DATE';
   }
 };
 
+function createStampNow() {
+  var stamp = Date.now()
+
+  return {
+    "unix-in-ms": stamp,
+    "utc": new Date(stamp).toUTCString()
+  }
+};
+
 app.get('/timestamp/:date', (req, res) => res.send(createStamp(req.params.date)));
+
+app.get('/timestamp//', (req, res) => res.send(createStampNow()));
 
 app.listen(port, () => console.log(`timeStamp listening on port ${port}`));
