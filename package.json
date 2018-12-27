@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jondekerh/timeStamp/issues"
   },
-  "homepage": "https://github.com/jondekerh/timeStamp#readme"
+  "homepage": "https://github.com/jondekerh/timeStamp#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
